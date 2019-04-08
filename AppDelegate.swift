@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  NXSpot
 //
-//  Created by vijay vir on 11/6/17.
-//  Copyright © 2017 vijay vir. All rights reserved.
+//  Created by Anupriya Kumari on 11/6/17.
+//  Copyright © 2017 Anupriya Kumari. All rights reserved.
 //
 import UIKit
 import IQKeyboardManager
