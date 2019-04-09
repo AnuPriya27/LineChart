@@ -688,3 +688,36 @@ open class LinearScale {
     }
     
 }
+
+//How to use
+// 1 - Drag and Drop a View in your View Controller.
+// 2 - add Class name Of UIView as LineChart.
+// 3 - create array of String to display data on X- axis and array of CGFloat to dispay data on Y- axis.
+// 4 - if you are adding view from StoryBoard then , it must contain atleast one data on each axis , You can handle it by creating a Static Arr of X- value and Y- value. 
+    var yValue : [CGFloat] = [] //  array you getting from your server
+    var staticXval : [String] = ["2001","2002","2003"] // Static array to handle crash while adding view from StoryBoard.
+    var staticYval : [CGFloat] = [10.0,20.0,100.0] // Static array to handle crash while adding view from StoryBoard.
+    var xLabels : [String] = [] // array you getting from your server
+   if yValue.count > 1 {
+            drawLineChart(xValue: xLabels, yValue: yValue)
+        }else{
+            viewLineChart.isHidden = true
+           // viewLineChart.drawingWidth = 0
+            lblChartData.text = "Sorry No data Found"
+            drawLineChart(xValue: staticXval, yValue: staticYval)
+        }
+
+ // MARK:- Draw LineChart Of Data
+    func drawLineChart(xValue : [String] , yValue : [CGFloat]){
+        viewLineChart.animation.enabled = true
+        viewLineChart.area = true
+        viewLineChart.x.labels.visible = true
+        //        lineChart.x.grid.count = 8
+        //        lineChart.y.grid.count = 8
+        viewLineChart.x.labels.values = xValue
+        viewLineChart.y.labels.visible = true
+        //        lineChart.addLine(data)
+        viewLineChart.addLine(yValue)
+        viewLineChart.translatesAutoresizingMaskIntoConstraints = false
+        viewLineChart.delegate = self
+    }
